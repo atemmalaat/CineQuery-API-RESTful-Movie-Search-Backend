@@ -4,7 +4,7 @@ A robust and secure RESTful API for managing a movie database, built with Node.j
 
 The API is professionally documented using Swagger UI, providing an interactive way to explore and test the endpoints.
 
-**Live Demo / API Docs:** [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+**Live Demo / API Docs:** [http://54.79.30.138:3001/](http://54.79.30.138:3001/)
 
 ![MovieDB API Swagger UI](https://i.imgur.com/your-screenshot.png)
 _This screenshot should be of your Swagger UI, which is available at the link above when the application is running._
