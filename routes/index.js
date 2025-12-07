@@ -103,7 +103,7 @@ router.get("/movies/poster/:tconst", async (req, res) => {
   }
 });
 
-router.put('/movies/poster/:tconst', async function (req, res) {
+router.put('/movies/poster/:tconst', authorization, async function (req, res) {
   const tconst = req.params.tconst;
   const { Poster, Title, Year } = req.body;
 
