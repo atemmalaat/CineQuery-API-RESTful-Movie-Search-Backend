@@ -7,9 +7,18 @@ const { createElement } = require('react');
 // const https = require('https');
 
 
-/* GET home page. */
-router.get('/', (req, res) => {
-  res.render('index', { title: 'Movie Search' });
+/* GET all movies */
+router.get('/', async (req, res) => {
+  try {
+    const movies = await req.db('basics')
+      .select('tconst', 'primaryTitle', 'startYear', 'titleType', 'genres')
+      .limit(50);
+    
+    res.json({ Error: false, Message: "Success", Movies: movies });
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+    res.status(500).json({ Error: true, Message: 'Error in MYSQL query' });
+  }
 });
 
 //get movie by imdb 
@@ -25,6 +34,7 @@ router.get('/movies/data/:tconst', async (req, res) => {
   }
 });
 
+//GET movie b ysearch query
 router.get('/movies/search', async (req, res) => {
   // Get the search term from the query parameter 'title'.
   // Example URL: /movies/search?title=wind
